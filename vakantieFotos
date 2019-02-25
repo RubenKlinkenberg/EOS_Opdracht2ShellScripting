@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+mkdir $1/Vakantie								#Maak map 'Vakantie' aan in gegeven directory
+find $1 -name "*jpeg" | grep  vakantie | xargs -I '{}'  mv {} $1/Vakantie	#In gegeven directory, vind alle .jpeg bestanden,
+										#pak de .jpeg bestand betreffende vakantie en verplaats deze naar gemaakte directory
+ 

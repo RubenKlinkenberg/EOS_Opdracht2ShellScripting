@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+for var in "$@"								#Voer uit voor elk gegeven argument
+do
+case $var  in								#Case opstellen voor gegeven argument
+
+	"zip") NUMFILES=$(find . -name "*.zip" | wc -l) 		#Incase zip; Vind alle .zip bestanden, tel deze en assign de waarde naar $NUMFILES
+	echo "There are $NUMFILES .zip files in this directory";;	#Echo $NUMFILES terug
+
+	"pdf") NUMFILES=$(find . -name "*.pdf" | wc -l)			#Incase pdf; Vind alle .pdf bestanden, tel deze en assign de waarde naar $NUMFILES
+	echo "There are $NUMFILES .pdf files in this directory";;	#Echo $NUMFILES terug
+
+	"doc") NUMFILES=$(find . -name "*.doc" | wc -l)			#Incase doc; Vind alle .doc bestanden, tel deze en assign de waarde naar $NUMFILES
+	echo "There are $NUMFILES .doc files in this directory";;	#Echo $NUMFILES terug
+
+	"jpeg")NUMFILES=$(find . -name "*.jpeg" | wc -l)		#Incase jpeg; Vind alle .jpeg bestanden, tel deze en assign de waarde naar $NUMFILES
+	echo "There are $NUMFILES .jpeg files in this directroy";;	#Echo $NUMFILES terug
+
+	"png") NUMFILES=$(find . -name "*.png" | wc -l)			#Incase png; Vind alle .png bestanden, tel deze en assign de waarde naar $NUMFILES
+	echo "There are $NUMFILES .png files in this directory";;	#Echo $NUMFILES terug
+esac
+done

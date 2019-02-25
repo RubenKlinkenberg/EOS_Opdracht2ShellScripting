@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+mkdir $1/Afbeeldingen		#Maak folder 'Afbeeldingen' aan in gegeven directory
+for i in *.jpeg			#Voer uit voor elk .jpeg bestand
+	do
+	mv  $i $1/Afbeeldingen	#Verplaats .jpeg bestand naar gemaakte directory 
+	done
+for i in *.png			#Voer uit voor elk .png bestand
+	do
+	mv $i $1/Afbeeldingen	#Verplaats .png bestand naar gemaakte directory
+	done

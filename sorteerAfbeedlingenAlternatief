@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+mkdir $1/Afbeeldingen					#Maak folder 'Afbeeldingen' aan in gegeven directory
+find . -name "*.jpeg" -exec mv "{}" $1/Afbeeldingen \;	#Vind alle .jpeg bestanden en verplaats deze naar gegeven directory
+find . -name "*.png" -exec mv "{}" $1/Afbeeldingen \;	#Vind alle .png bestanden en verplaats deze naar gegeven directory

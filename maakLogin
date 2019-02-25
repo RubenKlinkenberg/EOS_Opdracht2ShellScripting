@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+echo "Give me a username" 					#Vraag om gebruikersnaam
+read name
+if [ -z "$name" ]						#Als er geen input geleverd wordt
+then
+	name=$(whoami)						#Dan default gebruikersnaam
+fi
+
+while true; do							#Begin while loop voor input
+	read -s -p "Give me a password: " password
+	echo
+	read -s -p "Give me the same password: " password2
+	echo
+	if [ "$password" == "$password2" ] &&			#Als wachtwoord twee keer hetzelfde is ingevoerd
+	[[ "$password" =~ [A-Z] ]] &&				#Als hoofdletter voorkomt in wachtwoord
+	[ ${#password} -gt "7" ] &&				#Als wachtwoordlengte groter dan 7 is
+	[[ "$password" =~ [a-z] ]] &&				#Als kleine letter voorkomt in wachtwoord
+	[[ "$password" =~ [0-9] ]];				#Als cijfer voorkomt in wachtwoord
+
+	then 
+		break						#Break als voldaan wordt aan bovenstaande eisen
+	else
+		echo "Please retry"				#Anders opnieuw invoeren
+	fi
+done								#Einde while loop voor input
+
+touch userData.txt						#Maak bestand aan om data naar te verplaatsen
+MD5=$(echo "$password" | md5sum)				#Maak een MD5-hash aan van het wachtwoord
+echo "$name" >> userData.txt					#Verplaats username naar bestand
+echo "$MD5" >> userData.txt					#Verplaats MD5-hash naar bestand

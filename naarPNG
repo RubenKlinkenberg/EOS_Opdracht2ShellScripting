@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd ~/$1					#Verander naar gegeven directory
+mogrify -format png *jpeg		#Maak een .png kopie van elk .jpeg bestand 
+mogrify -resize 128x128 *png		#Resize elk .png bestand tot 128x128 formaat

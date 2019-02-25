@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+cd "$1"				#Verander naar gewenste directory
+log="log.txt"			#Assign logbestand
+
+if test -f $log ;then		#Als logbestand al bestaat
+rm $log				#Verwijder logbestand
+fi
+touch $log			#Maak nieuwe, lege log aan
+
+for file in ./*			#Voor elk bestand in current directory
+do
+if test -"$2" "$file"; then	#Test bestand met gewenste, gegeven commando
+	echo "Succes" >> $log 	#Bij slaging voeg Succes aan log toe
+else
+	echo "Failure" >> $log	#Bij mislukking voeg Failure aan log toe
+fi
+done

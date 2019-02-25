@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+for var in "$@"							#Voer voor elke gegeven argument uit
+do
+case $var in							#Stel case op
+	"zip") mkdir zipFiles					#Incase zip; Maak map zipFiles aan
+	find . -name "*.zip" -exec mv "{}" ./zipFiles \ ;;	#Vind in current directory alle .zip bestanden en verplaats ze naar map zipFiles
+
+	"pdf") mkdir pdfFiles					#Incase pdf; maak map pdfFiles aan
+	find . -name "*.pdf" -exec mv "{}" ./pdfFiles \ ;;	#Vind in current directory alle .pdf bestanden en verplaats ze naar map pdfFiles
+
+	"jpeg") mkdir jpegFiles					#Incase jpeg; maak map jpegFile aan
+	find . -name "*.jpeg" -exec mv "{}" ./jpegFiles \ ;;	#Vind in current directory alle .jpeg bestanden en verplaats ze naar map pdfFiles
+
+	"png") mkdir pngFiles
+	find . -name "*.png" -exec mv "{}" ./pngFiles \ ;;
+
+	"doc") mkdir docFiles
+	find . -name "*.doc" -exec mv "{}" ./docFiles \ ;;
+
+	"txt") mkdir txtFiles
+	find . -name "*.txt" -exec mv "{}" ./txtFiles \ ;;
+
+	"py") mkdir pyFiles
+	find . -name "*.py" -exec mv "{}" ./pyFiles \;;
+esac
+done
